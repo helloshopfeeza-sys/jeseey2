@@ -439,21 +439,84 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 border-t-4 border-brand-red">
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-brand-red">
         <div class="container mx-auto px-6 lg:px-12">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
-                         <i class="fa-solid fa-earth-americas text-brand-red"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-white rounded flex items-center justify-center overflow-hidden">
+                            <img src="https://iili.io/fB0nTBV.png" alt="Jeseey Logo" class="w-8 h-8 object-contain">
+                        </div>
                         <span class="font-header text-xl font-bold">JESEEY AGENCY</span>
                     </div>
-                    <p class="text-gray-500 text-sm">© 2024 Jeseey Foreign Employment Agency. All Rights Reserved.</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Your trusted partner for global workforce solutions. We connect talent with opportunity across borders with integrity, speed, and reliability.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors group">
+                            <i class="fa-brands fa-linkedin-in text-gray-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors group">
+                            <i class="fa-brands fa-facebook-f text-gray-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-red transition-colors group">
+                            <i class="fa-brands fa-instagram text-gray-400 group-hover:text-white"></i>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="flex space-x-6">
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-red transition-colors"><i class="fa-brands fa-instagram"></i></a>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-header font-bold text-lg mb-6 text-brand-red">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-white hover:translate-x-1 transition-all inline-block">Home</a></li>
+                        <li><a href="#about" class="hover:text-white hover:translate-x-1 transition-all inline-block">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white hover:translate-x-1 transition-all inline-block">Our Services</a></li>
+                        <li><a href="#jobs" class="hover:text-white hover:translate-x-1 transition-all inline-block">Latest Vacancies</a></li>
+                        <li><a href="#contact" class="hover:text-white hover:translate-x-1 transition-all inline-block">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-header font-bold text-lg mb-6 text-brand-red">Our Sectors</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> Construction & Engineering</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> Healthcare & Nursing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> Hospitality & Tourism</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> IT & Technical Support</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> General Labor</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-header font-bold text-lg mb-6 text-brand-red">Get In Touch</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-red"></i>
+                            <span>No. 88/A2, Negombo Road,<br>Kurunegala, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-red"></i>
+                            <span>0372229697</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-red"></i>
+                            <span>info@jeseeymanpower.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2024 Jeseey Foreign Employment Agency. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
                 </div>
             </div>
         </div>
