@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeseey Foreign Employment Agency | Global Recruitment</title>
+    
+    <!-- Google Fonts: Montserrat (Headers) & Open Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#002B5B',    /* Deep Navy Blue */
+                            lightBlue: '#1A5F7A', /* Lighter Blue */
+                            red: '#E31C25',     /* Vivid Red */
+                            darkRed: '#B9121B', /* Darker Red for hover */
+                            gray: '#F4F6F8',    /* Light Gray Background */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        header: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Custom Styles */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        /* Smooth fade for job filtering */
+        .job-row {
+            transition: all 0.3s ease;
+        }
+        .job-row.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-brand-gray overflow-x-hidden">
+
+    <!-- Top Bar (Contact Info) -->
+    <div class="bg-brand-blue text-white py-2 text-xs hidden md:block">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span><i class="fa-solid fa-phone mr-2 text-brand-red"></i>0372229697</span>
+                <span><i class="fa-solid fa-envelope mr-2 text-brand-red"></i>info@jeseeyagency.com</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-brand-red transition-colors">Login</a>
+                <span>|</span>
+                <a href="#" class="hover:text-brand-red transition-colors">Support</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 top-0 md:top-8 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center h-20">
+            <!-- Logo Section -->
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- Updated Logo Container -->
+                <div class="w-14 h-14 flex items-center justify-center rounded overflow-hidden">
+                    <img src="https://iili.io/fB0nTBV.png" alt="Jeseey Agency Logo" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <span class="font-header font-extrabold text-xl text-brand-blue leading-none tracking-tight">JESEEY</span>
+                    <span class="font-header font-bold text-xs text-brand-red uppercase tracking-widest leading-snug">Foreign Employment Agency</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" onclick="showHome()" class="nav-link font-semibold text-gray-600 hover:text-brand-red transition-colors text-sm uppercase">Home</a>
+                <a href="#services" onclick="showHome()" class="nav-link font-semibold text-gray-600 hover:text-brand-red transition-colors text-sm uppercase">Services</a>
+                <a href="#vacancies" onclick="showVacancies(event)" class="nav-link font-semibold text-gray-600 hover:text-brand-red transition-colors text-sm uppercase">Vacancies</a>
+                <!-- More Dropdown -->
+                <div class="relative group">
+                    <button class="nav-link font-semibold text-gray-600 hover:text-brand-red transition-colors text-sm uppercase flex items-center gap-1">
+                        More <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
+                        <a href="#aboutpage" onclick="showAbout(event)" class="block px-4 py-3 text-gray-600 hover:bg-brand-gray hover:text-brand-red transition-colors text-sm font-semibold uppercase">
+                            <i class="fa-solid fa-building mr-2 text-brand-blue"></i> About Us
+                        </a>
+                        <a href="#process" onclick="showProcess(event)" class="block px-4 py-3 text-gray-600 hover:bg-brand-gray hover:text-brand-red transition-colors text-sm font-semibold uppercase border-t border-gray-100">
+                            <i class="fa-solid fa-list-check mr-2 text-brand-blue"></i> Process
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#contact" class="px-6 py-2.5 bg-brand-red text-white font-bold text-sm rounded hover:bg-brand-blue transition-all duration-300 shadow-lg transform hover:-translate-y-0.5">
+                    CONTACT US
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMenu()" class="md:hidden text-brand-blue text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8 md:hidden shadow-2xl">
+            <button onclick="toggleMenu()" class="absolute top-6 right-6 text-brand-red text-3xl">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <a href="#home" onclick="toggleMenu(); showHome()" class="font-header text-2xl text-brand-blue font-bold hover:text-brand-red">Home</a>
+            <a href="#services" onclick="toggleMenu(); showHome(); setTimeout(() => document.getElementById('services').scrollIntoView({behavior: 'smooth'}), 100)" class="font-header text-2xl text-brand-blue font-bold hover:text-brand-red">Services</a>
+            <a href="#vacancies" onclick="toggleMenu(); showVacancies(event)" class="font-header text-2xl text-brand-blue font-bold hover:text-brand-red">Vacancies</a>
+            <a href="#aboutpage" onclick="toggleMenu(); showAbout(event)" class="font-header text-2xl text-brand-blue font-bold hover:text-brand-red">About Us</a>
+            <a href="#process" onclick="toggleMenu(); showProcess(event)" class="font-header text-2xl text-brand-blue font-bold hover:text-brand-red">Process</a>
+            <a href="#contact" onclick="toggleMenu(); showHome()" class="px-8 py-3 bg-brand-red text-white font-bold rounded">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center bg-fixed bg-cover bg-center mt-8 md:mt-0" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-blue/90 to-brand-blue/40"></div>
+        
+        <div class="container mx-auto px-6 lg:px-12 relative z-10 pt-20">
+            <div class="max-w-3xl" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-block bg-brand-red text-white px-3 py-1 text-xs font-bold uppercase tracking-wider mb-4 rounded-sm">
+                    License No: LLC 3376
+                </div>
+                <h1 class="font-header font-extrabold text-5xl md:text-7xl text-white leading-tight mb-6">
+                    Building Careers <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">Beyond Borders</span>
+                </h1>
+                <p class="text-gray-100 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
+                    Jeseey Agency connects skilled professionals with top-tier international employers. Reliability, transparency, and speed are our core values.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#jobs" class="bg-brand-red text-white px-8 py-4 font-bold rounded hover:bg-white hover:text-brand-red transition-colors duration-300 text-center shadow-lg">
+                        FIND A JOB
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 font-bold rounded hover:bg-white hover:text-brand-blue transition-colors duration-300 text-center">
+                        FOR EMPLOYERS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Strip -->
+    <div class="bg-brand-red relative z-20 shadow-xl">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/20">
+                <div class="p-2">
+                    <i class="fa-solid fa-calendar-check text-white/80 text-3xl mb-2"></i>
+                    <p class="text-3xl font-bold text-white">5+</p>
+                    <p class="text-xs text-white/90 uppercase font-semibold">Years Experience</p>
+                </div>
+                <div class="p-2">
+                    <i class="fa-solid fa-users text-white/80 text-3xl mb-2"></i>
+                    <p class="text-3xl font-bold text-white">50k+</p>
+                    <p class="text-xs text-white/90 uppercase font-semibold">Candidates Placed</p>
+                </div>
+                <div class="p-2">
+                    <i class="fa-solid fa-handshake text-white/80 text-3xl mb-2"></i>
+                    <p class="text-3xl font-bold text-white">100%</p>
+                    <p class="text-xs text-white/90 uppercase font-semibold">Trust Rate</p>
+                </div>
+                <div class="p-2">
+                    <i class="fa-solid fa-globe text-white/80 text-3xl mb-2"></i>
+                    <p class="text-3xl font-bold text-white">20+</p>
+                    <p class="text-xs text-white/90 uppercase font-semibold">Countries</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-red rounded-tl-3xl opacity-20"></div>
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Team Meeting" class="rounded-lg shadow-xl relative z-10 w-full object-cover h-[500px]">
+                    <div class="absolute -bottom-6 -right-6 bg-brand-blue p-6 rounded-lg shadow-lg z-20 hidden md:block max-w-xs">
+                        <p class="text-white font-serif italic">"We are committed to ethical recruitment and changing lives through opportunity."</p>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <span class="text-brand-red font-bold uppercase tracking-wider text-sm mb-2 block">Who We Are</span>
+                    <h2 class="font-header text-4xl text-brand-blue font-bold mb-6">Jeseey Foreign Employment Agency</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Established to bridge the gap between global employers and talented individuals, Jeseey Agency has grown into a leader in the foreign employment sector. We specialize in manpower supply for the Middle East, Europe, and Asia.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Our rigorous vetting process ensures that candidates are not only qualified but also mentally prepared for overseas challenges. We handle everything from documentation to departure.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-blue"></i>
+                            <span class="font-semibold text-gray-700">SLBFE Approved</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-blue"></i>
+                            <span class="font-semibold text-gray-700">Fast Processing</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-blue"></i>
+                            <span class="font-semibold text-gray-700">Medical Assistance</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-blue"></i>
+                            <span class="font-semibold text-gray-700">Visa Processing</span>
+                        </div>
+                    </div>
+
+                    <a href="#aboutpage" onclick="showAbout(event)" class="text-brand-red font-bold border-b-2 border-brand-red hover:text-brand-blue hover:border-brand-blue transition-all pb-1">Read More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directors Section -->
+    <section id="directors" class="py-20 bg-brand-gray">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Leadership</span>
+                <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Our Directors</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Director 1 - Image Left, Quote Right -->
+            <div class="grid md:grid-cols-2 gap-8 items-center mb-16" data-aos="fade-up">
+                <div class="aspect-square bg-gray-200 rounded-lg shadow-lg flex items-center justify-center overflow-hidden">
+                    <img src="https://iili.io/fxK0NF1.jpg" alt="Managing Director" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="font-header text-2xl font-bold text-brand-blue mb-2">Sithy Jeseema</h3>
+                    <p class="text-brand-red font-semibold text-sm mb-4">Managing Director</p>
+                    <div class="relative">
+                        <i class="fa-solid fa-quote-left text-brand-red/20 text-4xl absolute -top-2 -left-2"></i>
+                        <p class="text-gray-600 italic pl-6 leading-relaxed">
+                            "At Jeseey Foreign Employment, we believe that every individual deserves the opportunity to build a better future. Our commitment to ethical recruitment and transparent processes has been the cornerstone of our success. We don't just find jobs for people; we help them embark on life-changing journeys."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Director 2 - Quote Left, Image Right -->
+            <div class="grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                <div class="bg-white rounded-lg shadow-lg p-8 order-2 md:order-1">
+                    <h3 class="font-header text-2xl font-bold text-brand-blue mb-2">Mohamed Nasmi</h3>
+                    <p class="text-brand-red font-semibold text-sm mb-4">Executive Director</p>
+                    <div class="relative">
+                        <i class="fa-solid fa-quote-left text-brand-red/20 text-4xl absolute -top-2 -left-2"></i>
+                        <p class="text-gray-600 italic pl-6 leading-relaxed">
+                            "Our mission extends beyond placement numbers. We take pride in preparing our candidates not just professionally, but also mentally and culturally for their overseas endeavors. The trust our clients and candidates place in us drives us to maintain the highest standards in everything we do."
+                        </p>
+                    </div>
+                </div>
+                <div class="aspect-square bg-gray-200 rounded-lg shadow-lg flex items-center justify-center order-1 md:order-2 overflow-hidden">
+                    <img src="https://iili.io/fxKdekv.jpg" alt="Executive Director" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <span class="text-brand-red font-bold uppercase tracking-wider text-sm">The People Behind Our Success</span>
+                <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Our Team</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-6 leading-relaxed">
+                    Our dedicated team of professionals works tirelessly to ensure every candidate receives personalized attention and support throughout their journey. With expertise spanning recruitment, documentation, training, and client relations, we are committed to delivering excellence at every step.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Team Member 1 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="aspect-square bg-gray-200 rounded-lg shadow-lg flex items-center justify-center mb-4 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <img src="https://iili.io/fxFxTCv.jpg" alt="Dilshan Ahmed" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-header font-bold text-brand-blue">Dilshan Ahmed</h4>
+                    <p class="text-brand-red text-sm">Overseas Recruitment Manager</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-square bg-gray-200 rounded-lg shadow-lg flex items-center justify-center mb-4 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <img src="https://iili.io/fxFT9TX.jpg" alt="Mohamed Fakhar" class="w-full h-full object-cover object-top">
+                    </div>
+                    <h4 class="font-header font-bold text-brand-blue">Mohamed Fakhar</h4>
+                    <p class="text-brand-red text-sm">IT & Operations Executive</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-square bg-gray-200 rounded-lg shadow-lg flex items-center justify-center mb-4 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <img src="https://iili.io/fxFTA6x.jpg" alt="Mohamed Azam" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-header font-bold text-brand-blue">Mohamed Azam</h4>
+                    <p class="text-brand-red text-sm">Public Relations Officer</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center mb-4 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <img src="https://iili.io/fxFv8kQ.png" alt="Haifa Farween" class="w-full h-full object-cover object-top bg-white">
+                    </div>
+                    <h4 class="font-header font-bold text-brand-blue">Haifa Farween</h4>
+                    <p class="text-brand-red text-sm">Customer Service Officer</p>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="aspect-square bg-gray-200 rounded-lg shadow-lg flex items-center justify-center mb-4 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <img src="https://iili.io/fxFTktn.png" alt="Hansika" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-header font-bold text-brand-blue">Hansika</h4>
+                    <p class="text-brand-red text-sm">Office Coordinator</p>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="aspect-square bg-white rounded-lg shadow-lg flex items-center justify-center mb-4 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <img src="https://iili.io/fxK1VJn.png" alt="Ruwanthika Jayasinghe" class="w-full h-full object-contain object-top bg-white">
+                    </div>
+                    <h4 class="font-header font-bold text-brand-blue">Ruwanthika Jayasinghe</h4>
+                    <p class="text-brand-red text-sm">Office Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Our Expertise</span>
+                <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Sectors We Serve</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-transparent hover:border-brand-red group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-brand-blue mb-3">Construction</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Civil engineers, masons, electricians, and heavy machine operators for mega-projects.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-transparent hover:border-brand-red group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-brand-blue mb-3">Healthcare</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Qualified nurses, doctors, and caregivers for hospitals and private care facilities.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-transparent hover:border-brand-red group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-brand-blue mb-3">Hospitality</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Chefs, housekeepers, front-desk staff, and managers for 5-star hotels and resorts.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-transparent hover:border-brand-red group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-house-user"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-brand-blue mb-3">Domestic Services</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Housemaids, babysitters, cleaners, house cooks, and house drivers for private households.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-transparent hover:border-brand-red group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-brand-blue mb-3">Security & Logistics</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Security guards and delivery riders for commercial establishments and logistics companies.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white p-8 rounded-lg shadow hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-transparent hover:border-brand-red group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="font-header text-xl font-bold text-brand-blue mb-3">Education</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Pre-school teacher assistants and childcare professionals for educational institutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vacancies Section (Hidden by default for SPA behavior) -->
+    <section id="vacancies" class="hidden py-24 bg-white min-h-screen">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Back Button -->
+            <button onclick="showHome()" class="mb-8 flex items-center gap-2 text-brand-blue hover:text-brand-red transition-colors font-semibold">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <h2 class="font-header text-4xl text-brand-blue font-bold">Latest Vacancies</h2>
+                    <p class="text-gray-500 mt-2">Find your next opportunity abroad.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="job-filters">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-bold border border-brand-blue bg-brand-blue text-white hover:bg-brand-blue hover:text-white transition-colors" data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-colors" data-filter="security">Security</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-colors" data-filter="education">Education</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-bold border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-colors" data-filter="domestic">Domestic</button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-lg shadow-lg border border-gray-200">
+                <table class="w-full text-left border-collapse">
+                    <thead class="bg-brand-gray text-brand-blue uppercase text-xs font-bold tracking-wider">
+                        <tr>
+                            <th class="p-6">Job Title</th>
+                            <th class="p-6">Location</th>
+                            <th class="p-6">Salary</th>
+                            <th class="p-6 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="job-list" class="divide-y divide-gray-100">
+                        <!-- Job 1 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="security">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">Security Officer</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Security</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> UAE</td>
+                            <td class="p-6 font-bold text-green-600">1,600 AED/mo</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('Security Officer')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 2 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="education">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">Pre School Teacher Assistant (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Education</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> UAE</td>
+                            <td class="p-6 font-bold text-green-600">1,600 AED/mo</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('Pre School Teacher Assistant')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 3 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">Corporate Cleaner (Male)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> UAE</td>
+                            <td class="p-6 font-bold text-green-600">1,000 AED/mo</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('Corporate Cleaner')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 4 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">General Housemaid (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('General Housemaid')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 5 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">Babysitter (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('Babysitter')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 6 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">Caregiver (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('Caregiver')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 7 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">Elder Care (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('Elder Care')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 8 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">House Cook (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('House Cook')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 9 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">House Cleaner (Female)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('House Cleaner')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                        <!-- Job 10 -->
+                        <tr class="job-row hover:bg-blue-50 transition-colors" data-category="domestic">
+                            <td class="p-6">
+                                <div class="font-bold text-brand-blue text-lg">House Driver (Male)</div>
+                                <span class="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Domestic</span>
+                            </td>
+                            <td class="p-6 text-gray-600"><i class="fa-solid fa-location-dot text-brand-red mr-2"></i> Oman, Bahrain, Kuwait, UAE</td>
+                            <td class="p-6 font-bold text-green-600">Inquire</td>
+                            <td class="p-6 text-right">
+                                <button onclick="openApplyModal('House Driver')" class="bg-brand-red text-white px-5 py-2 rounded text-sm font-bold hover:bg-brand-darkRed transition-colors">APPLY</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Hidden by default for SPA behavior) -->
+    <section id="process" class="hidden py-24 bg-gradient-to-b from-brand-gray to-white min-h-screen">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Back Button -->
+            <button onclick="showHome()" class="mb-8 flex items-center gap-2 text-brand-blue hover:text-brand-red transition-colors font-semibold">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            
+            <!-- Header -->
+            <div class="text-center max-w-4xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Your Journey With Us</span>
+                <h2 class="font-header text-4xl md:text-5xl text-brand-blue font-bold mt-2">Recruitment Process</h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 mt-6 leading-relaxed">
+                    We ensure a transparent and smooth recruitment journey. Follow our step-by-step process to start your career abroad.
+                </p>
+            </div>
+
+            <!-- Male Vacancies Process -->
+            <div class="mb-20">
+                <div class="flex items-center justify-center gap-4 mb-12">
+                    <div class="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-mars text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-header text-3xl text-brand-blue font-bold">Process for Male Vacancies</h3>
+                </div>
+
+                <!-- Process Timeline -->
+                <div class="relative">
+                    
+                    <!-- Process Steps - Row 1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                        
+                        <!-- Step 1 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="0">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-blue z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-blue hover:border-brand-red transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    1
+                                </div>
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue transition-colors">
+                                    <i class="fa-solid fa-comments text-brand-blue text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Consultation</h4>
+                                <p class="text-gray-500 text-sm text-center">Initial discussion about your skills, experience, and career goals</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-blue z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-blue hover:border-brand-red transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    2
+                                </div>
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue transition-colors">
+                                    <i class="fa-solid fa-user-tie text-brand-blue text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Interview</h4>
+                                <p class="text-gray-500 text-sm text-center">Formal interview with the employer or their representative</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-blue z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-blue hover:border-brand-red transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    3
+                                </div>
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue transition-colors">
+                                    <i class="fa-solid fa-circle-check text-brand-blue text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Selection</h4>
+                                <p class="text-gray-500 text-sm text-center">If selected, you proceed to the next stage of the process</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-blue hover:border-brand-red transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    4
+                                </div>
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue transition-colors">
+                                    <i class="fa-solid fa-file-signature text-brand-blue text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Sign Offer Letter</h4>
+                                <p class="text-gray-500 text-sm text-center">Review and sign the official job offer letter from the employer</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Second Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 relative z-10 mt-8">
+
+                        <!-- Step 5 - Medical -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="400">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-blue z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-blue hover:border-brand-red transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    5
+                                </div>
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue transition-colors">
+                                    <i class="fa-solid fa-stethoscope text-brand-blue text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Medical Checkup</h4>
+                                <p class="text-gray-500 text-sm text-center">Complete the required medical examination for overseas employment</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="500">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-red z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-red hover:border-brand-blue transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-red to-brand-darkRed rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    6
+                                </div>
+                                <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-red transition-colors">
+                                    <i class="fa-solid fa-handshake text-brand-red text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Sign Agreement</h4>
+                                <p class="text-gray-500 text-sm text-center">Sign the employment agreement and contract documents</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="600">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-red z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-red hover:border-brand-blue transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-red to-brand-darkRed rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    7
+                                </div>
+                                <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-red transition-colors">
+                                    <i class="fa-solid fa-passport text-brand-red text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Receive Job Visa</h4>
+                                <p class="text-gray-500 text-sm text-center">Obtain your work visa for the destination country</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 8 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="700">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-red z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-red hover:border-brand-blue transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-red to-brand-darkRed rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    8
+                                </div>
+                                <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-red transition-colors">
+                                    <i class="fa-solid fa-stamp text-brand-red text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">SLBFE Approval</h4>
+                                <p class="text-gray-500 text-sm text-center">Get final clearance from Sri Lanka Bureau of Foreign Employment</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 9 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="800">
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-green-500 hover:border-brand-blue transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">FINAL</div>
+                                <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    9
+                                </div>
+                                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition-colors">
+                                    <i class="fa-solid fa-plane-departure text-green-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Departure</h4>
+                                <p class="text-gray-500 text-sm text-center">Begin your exciting journey to your new workplace abroad!</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Female Domestic Workers Process -->
+            <div class="mb-20 mt-24">
+                <div class="flex items-center justify-center gap-4 mb-12">
+                    <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-venus text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-header text-3xl text-brand-blue font-bold">Process for Female Domestic Workers</h3>
+                </div>
+
+                <!-- Process Timeline -->
+                <div class="relative">
+                    
+                    <!-- Process Steps - Row 1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                        
+                        <!-- Step 1 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="0">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-pink-500 z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-pink-500 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    1
+                                </div>
+                                <div class="w-12 h-12 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500 transition-colors">
+                                    <i class="fa-solid fa-passport text-pink-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Passport Submission</h4>
+                                <p class="text-gray-500 text-sm text-center">Handover your passport to us. If you don't have one, we'll help you create it!</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-pink-500 z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-pink-500 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    2
+                                </div>
+                                <div class="w-12 h-12 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-500 transition-colors">
+                                    <i class="fa-solid fa-circle-check text-pink-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Get Selected</h4>
+                                <p class="text-gray-500 text-sm text-center">Your profile is matched with suitable employers and you get selected</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-purple-500 z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-purple-500 hover:border-pink-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full relative">
+                                <div class="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">IF NEEDED</div>
+                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    3
+                                </div>
+                                <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition-colors">
+                                    <i class="fa-solid fa-graduation-cap text-purple-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Training</h4>
+                                <p class="text-gray-500 text-sm text-center">First-time workers without experience receive professional training. Experienced workers can skip this step.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-purple-500 hover:border-pink-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    4
+                                </div>
+                                <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition-colors">
+                                    <i class="fa-solid fa-stethoscope text-purple-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Medical Checkup</h4>
+                                <p class="text-gray-500 text-sm text-center">Complete the required medical examination for overseas employment</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Second Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 mt-8 lg:max-w-4xl lg:mx-auto">
+
+                        <!-- Step 5 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="400">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-purple-500 z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-purple-500 hover:border-green-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    5
+                                </div>
+                                <div class="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition-colors">
+                                    <i class="fa-solid fa-id-card text-purple-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Visa Processing</h4>
+                                <p class="text-gray-500 text-sm text-center">Your work visa is processed and obtained for the destination country</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="500">
+                            <!-- Connector to next -->
+                            <div class="hidden lg:block absolute top-1/2 -right-4 w-8 h-1 bg-brand-blue z-0"></div>
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-brand-blue hover:border-green-500 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+                                <div class="w-14 h-14 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    6
+                                </div>
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-blue transition-colors">
+                                    <i class="fa-solid fa-stamp text-brand-blue text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">SLBFE Approval</h4>
+                                <p class="text-gray-500 text-sm text-center">Get final clearance from Sri Lanka Bureau of Foreign Employment</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="group relative" data-aos="fade-up" data-aos-delay="600">
+                            <div class="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-green-500 hover:border-brand-blue transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">FINAL</div>
+                                <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold mb-4 mx-auto group-hover:scale-110 transition-transform shadow-lg">
+                                    7
+                                </div>
+                                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition-colors">
+                                    <i class="fa-solid fa-plane-departure text-green-500 text-xl group-hover:text-white transition-colors"></i>
+                                </div>
+                                <h4 class="font-header font-bold text-lg text-brand-blue text-center mb-2">Departure</h4>
+                                <p class="text-gray-500 text-sm text-center">Begin your exciting journey to your new workplace abroad!</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-16 bg-gradient-to-r from-brand-blue to-brand-lightBlue rounded-2xl p-8 md:p-12 text-center shadow-2xl" data-aos="fade-up">
+                <h3 class="font-header text-2xl md:text-3xl text-white font-bold mb-4">Ready to Start Your Journey?</h3>
+                <p class="text-gray-200 mb-8 max-w-2xl mx-auto">Contact us today to begin your recruitment process and take the first step towards an exciting career abroad.</p>
+                <a href="#contact" onclick="showHome(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="inline-block bg-brand-red text-white px-8 py-4 font-bold rounded-lg hover:bg-white hover:text-brand-red transition-colors duration-300 shadow-lg">
+                    <i class="fa-solid fa-phone mr-2"></i> CONTACT US NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Full Page Section (Hidden by default for SPA behavior) -->
+    <section id="aboutpage" class="hidden min-h-screen">
+        <!-- Hero Banner -->
+        <div class="relative bg-brand-blue py-24 overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-red rounded-full translate-x-1/2 translate-y-1/2"></div>
+            </div>
+            <div class="container mx-auto px-6 lg:px-12 relative z-10">
+                <!-- Back Button -->
+                <button onclick="showHome()" class="mb-8 flex items-center gap-2 text-white/80 hover:text-white transition-colors font-semibold">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Home
+                </button>
+                <div class="text-center max-w-4xl mx-auto" data-aos="fade-up">
+                    <span class="text-brand-red font-bold uppercase tracking-wider text-sm bg-white/10 px-4 py-2 rounded-full">Discover Our Story</span>
+                    <h1 class="font-header text-4xl md:text-6xl text-white font-bold mt-6 mb-6">About Jeseey Agency</h1>
+                    <p class="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto">
+                        Empowering dreams, connecting talent with global opportunities since our founding. Your trusted partner for a successful career abroad.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Story Section -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <div class="relative">
+                            <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-red/10 rounded-tl-3xl"></div>
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-blue/10 rounded-br-3xl"></div>
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Our Story" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[450px]">
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                        <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Our Story</span>
+                        <h2 class="font-header text-4xl text-brand-blue font-bold mt-2 mb-6">Building Dreams Since Day One</h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                            Jeseey Foreign Employment Agency was founded with a singular vision: to bridge the gap between talented individuals seeking opportunities abroad and employers looking for dedicated workers.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            What started as a small operation has grown into one of the most trusted names in foreign employment recruitment in Sri Lanka. Our journey has been marked by countless success stories of individuals who have transformed their lives through opportunities we helped create.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Today, we proudly serve as a licensed recruitment agency under the Sri Lanka Bureau of Foreign Employment (SLBFE), maintaining the highest standards of ethical recruitment practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission, Vision, Values -->
+        <div class="py-20 bg-brand-gray">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-brand-red font-bold uppercase tracking-wider text-sm">What Drives Us</span>
+                    <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Our Mission, Vision & Values</h2>
+                    <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Mission -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border-t-4 border-brand-blue" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 bg-brand-blue/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-bullseye text-brand-blue text-2xl"></i>
+                        </div>
+                        <h3 class="font-header text-2xl font-bold text-brand-blue mb-4">Our Mission</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To provide ethical, transparent, and efficient recruitment services that connect skilled Sri Lankan workers with quality employment opportunities worldwide, while ensuring their safety, dignity, and professional growth.
+                        </p>
+                    </div>
+
+                    <!-- Vision -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border-t-4 border-brand-red" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-eye text-brand-red text-2xl"></i>
+                        </div>
+                        <h3 class="font-header text-2xl font-bold text-brand-blue mb-4">Our Vision</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            To be the most trusted and preferred foreign employment agency in Sri Lanka, recognized globally for our commitment to excellence, ethical practices, and the positive impact we create in the lives of workers and their families.
+                        </p>
+                    </div>
+
+                    <!-- Values -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border-t-4 border-green-500" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-heart text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="font-header text-2xl font-bold text-brand-blue mb-4">Our Values</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Integrity & Transparency</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Respect & Dignity</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Excellence in Service</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Continuous Improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Why Jeseey?</span>
+                    <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Why Choose Us</h2>
+                    <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-blue to-brand-lightBlue rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-shield-halved text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-header font-bold text-xl text-brand-blue mb-3">SLBFE Licensed</h4>
+                        <p class="text-gray-600 text-sm">Fully licensed and approved by the Sri Lanka Bureau of Foreign Employment (License: LLC 3376)</p>
+                    </div>
+
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-red to-brand-darkRed rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-header font-bold text-xl text-brand-blue mb-3">Fast Processing</h4>
+                        <p class="text-gray-600 text-sm">Efficient documentation and visa processing to get you to your destination quickly and safely</p>
+                    </div>
+
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-headset text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-header font-bold text-xl text-brand-blue mb-3">24/7 Support</h4>
+                        <p class="text-gray-600 text-sm">Round-the-clock assistance for candidates before, during, and after deployment abroad</p>
+                    </div>
+
+                    <div class="text-center p-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fa-solid fa-handshake text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-header font-bold text-xl text-brand-blue mb-3">Trusted Partners</h4>
+                        <p class="text-gray-600 text-sm">Strong relationships with reputable employers across Middle East, Europe, and Asia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leadership Section -->
+        <div class="py-20 bg-brand-gray">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Leadership</span>
+                    <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Meet Our Directors</h2>
+                    <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+                    <p class="text-gray-600 mt-6">The visionaries behind Jeseey's success and commitment to ethical recruitment.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Director 1 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-80 overflow-hidden">
+                            <img src="https://iili.io/fxK0NF1.jpg" alt="Managing Director" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-header text-2xl font-bold text-brand-blue mb-1">Sithy Jeseema</h3>
+                            <p class="text-brand-red font-semibold text-sm mb-4">Managing Director</p>
+                            <div class="relative">
+                                <i class="fa-solid fa-quote-left text-brand-red/20 text-3xl absolute -top-1 -left-1"></i>
+                                <p class="text-gray-600 italic pl-6 text-sm leading-relaxed">
+                                    "At Jeseey Foreign Employment, we believe that every individual deserves the opportunity to build a better future. Our commitment to ethical recruitment and transparent processes has been the cornerstone of our success."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Director 2 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-80 overflow-hidden">
+                            <img src="https://iili.io/fxKdekv.jpg" alt="Executive Director" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-header text-2xl font-bold text-brand-blue mb-1">Mohamed Nasmi</h3>
+                            <p class="text-brand-red font-semibold text-sm mb-4">Executive Director</p>
+                            <div class="relative">
+                                <i class="fa-solid fa-quote-left text-brand-red/20 text-3xl absolute -top-1 -left-1"></i>
+                                <p class="text-gray-600 italic pl-6 text-sm leading-relaxed">
+                                    "Our mission extends beyond placement numbers. We take pride in preparing our candidates not just professionally, but also mentally and culturally for their overseas endeavors."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Preview -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-brand-red font-bold uppercase tracking-wider text-sm">Our People</span>
+                    <h2 class="font-header text-4xl text-brand-blue font-bold mt-2">Dedicated Team</h2>
+                    <div class="w-20 h-1 bg-brand-red mx-auto mt-4 rounded-full"></div>
+                    <p class="text-gray-600 mt-6">Our team of professionals works tirelessly to ensure every candidate receives personalized attention and support throughout their journey.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <!-- Team Member 1 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white mb-4">
+                            <img src="https://iili.io/fxFxTCv.jpg" alt="Dilshan Ahmed" class="w-full h-full object-cover">
+                        </div>
+                        <h5 class="font-semibold text-brand-blue text-sm">Dilshan Ahmed</h5>
+                        <p class="text-gray-500 text-xs">Overseas Recruitment Manager</p>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="50">
+                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white mb-4">
+                            <img src="https://iili.io/fxFT9TX.jpg" alt="Mohamed Fakhar" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h5 class="font-semibold text-brand-blue text-sm">Mohamed Fakhar</h5>
+                        <p class="text-gray-500 text-xs">IT & Operations Executive</p>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white mb-4">
+                            <img src="https://iili.io/fxFTA6x.jpg" alt="Mohamed Azam" class="w-full h-full object-cover">
+                        </div>
+                        <h5 class="font-semibold text-brand-blue text-sm">Mohamed Azam</h5>
+                        <p class="text-gray-500 text-xs">Public Relations Officer</p>
+                    </div>
+                    <!-- Team Member 4 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="150">
+                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white mb-4 bg-white">
+                            <img src="https://iili.io/fxFv8kQ.png" alt="Haifa Farween" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h5 class="font-semibold text-brand-blue text-sm">Haifa Farween</h5>
+                        <p class="text-gray-500 text-xs">Customer Service Officer</p>
+                    </div>
+                    <!-- Team Member 5 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white mb-4">
+                            <img src="https://iili.io/fxFTktn.png" alt="Hansika" class="w-full h-full object-cover">
+                        </div>
+                        <h5 class="font-semibold text-brand-blue text-sm">Hansika</h5>
+                        <p class="text-gray-500 text-xs">Office Coordinator</p>
+                    </div>
+                    <!-- Team Member 6 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="250">
+                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-white mb-4 bg-white">
+                            <img src="https://iili.io/fxK1VJn.png" alt="Ruwanthika Jayasinghe" class="w-full h-full object-contain object-top">
+                        </div>
+                        <h5 class="font-semibold text-brand-blue text-sm">Ruwanthika Jayasinghe</h5>
+                        <p class="text-gray-500 text-xs">Office Coordinator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="py-16 bg-brand-blue">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-5xl font-bold text-white mb-2">500+</div>
+                        <p class="text-white/70 uppercase text-sm tracking-wider">Workers Deployed</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl font-bold text-white mb-2">15+</div>
+                        <p class="text-white/70 uppercase text-sm tracking-wider">Countries Served</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl font-bold text-white mb-2">50+</div>
+                        <p class="text-white/70 uppercase text-sm tracking-wider">Partner Companies</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-5xl font-bold text-white mb-2">98%</div>
+                        <p class="text-white/70 uppercase text-sm tracking-wider">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-6 lg:px-12">
+                <div class="bg-gradient-to-r from-brand-blue to-brand-lightBlue rounded-2xl p-8 md:p-12 text-center shadow-2xl" data-aos="fade-up">
+                    <h3 class="font-header text-2xl md:text-3xl text-white font-bold mb-4">Ready to Start Your Journey?</h3>
+                    <p class="text-gray-200 mb-8 max-w-2xl mx-auto">Join thousands of successful candidates who have transformed their lives through opportunities we helped create.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#contact" onclick="showHome(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)" class="inline-block bg-brand-red text-white px-8 py-4 font-bold rounded-lg hover:bg-white hover:text-brand-red transition-colors duration-300 shadow-lg">
+                            <i class="fa-solid fa-phone mr-2"></i> CONTACT US
+                        </a>
+                        <a href="#vacancies" onclick="showVacancies(event)" class="inline-block bg-white text-brand-blue px-8 py-4 font-bold rounded-lg hover:bg-brand-red hover:text-white transition-colors duration-300 shadow-lg">
+                            <i class="fa-solid fa-briefcase mr-2"></i> VIEW VACANCIES
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-brand-red">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div>
+                    <div class="flex flex-col mb-6">
+                        <span class="font-header font-extrabold text-3xl text-white leading-none tracking-tight">JESEEY</span>
+                        <span class="font-header font-bold text-sm text-brand-red uppercase tracking-widest leading-snug mt-1">Foreign Employment Agency</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Your trusted partner for global workforce solutions. We connect talent with opportunity across borders with integrity, speed, and reliability.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors group">
+                            <i class="fa-brands fa-linkedin-in text-gray-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition-colors group">
+                            <i class="fa-brands fa-facebook-f text-gray-400 group-hover:text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-red transition-colors group">
+                            <i class="fa-brands fa-instagram text-gray-400 group-hover:text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-header font-bold text-lg mb-6 text-brand-red">Quick Links</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#home" onclick="showHome()" class="hover:text-white hover:translate-x-1 transition-all inline-block">Home</a></li>
+                        <li><a href="#about" onclick="showHome()" class="hover:text-white hover:translate-x-1 transition-all inline-block">About Us</a></li>
+                        <li><a href="#services" onclick="showHome()" class="hover:text-white hover:translate-x-1 transition-all inline-block">Our Services</a></li>
+                        <li><a href="#vacancies" onclick="showVacancies(event)" class="hover:text-white hover:translate-x-1 transition-all inline-block">Latest Vacancies</a></li>
+                        <li><a href="#contact" onclick="showHome()" class="hover:text-white hover:translate-x-1 transition-all inline-block">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-header font-bold text-lg mb-6 text-brand-red">Our Sectors</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> Construction & Engineering</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> Healthcare & Nursing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> Hospitality & Tourism</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> IT & Technical Support</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-blue text-xs"></i> General Labor</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-header font-bold text-lg mb-6 text-brand-red">Get In Touch</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-red"></i>
+                            <span>No. 88/A2, Negombo Road,<br>Kurunegala, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-red"></i>
+                            <span>0372229697</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-red"></i>
+                            <span>info@jeseeymanpower.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2024 Jeseey Foreign Employment Agency. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+            } else {
+                menu.classList.add('translate-x-full');
+            }
+        }
+
+        // SPA Navigation - Home Sections
+        const homeSections = ['home', 'about', 'directors', 'team', 'services'];
+        
+        function showHome() {
+            // Show all home sections
+            homeSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.classList.remove('hidden');
+            });
+            // Also show statistics strip
+            document.querySelector('.bg-brand-red.relative.z-20')?.classList.remove('hidden');
+            
+            // Hide vacancies, process, and about page sections
+            document.getElementById('vacancies').classList.add('hidden');
+            document.getElementById('process').classList.add('hidden');
+            document.getElementById('aboutpage').classList.add('hidden');
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showVacancies(event) {
+            if (event) event.preventDefault();
+            
+            // Hide all home sections
+            homeSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.classList.add('hidden');
+            });
+            // Also hide statistics strip
+            document.querySelector('.bg-brand-red.relative.z-20')?.classList.add('hidden');
+            
+            // Hide process section
+            document.getElementById('process').classList.add('hidden');
+            
+            // Hide about page section
+            document.getElementById('aboutpage').classList.add('hidden');
+            
+            // Show vacancies section
+            document.getElementById('vacancies').classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showProcess(event) {
+            if (event) event.preventDefault();
+            
+            // Hide all home sections
+            homeSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.classList.add('hidden');
+            });
+            // Also hide statistics strip
+            document.querySelector('.bg-brand-red.relative.z-20')?.classList.add('hidden');
+            
+            // Hide vacancies section
+            document.getElementById('vacancies').classList.add('hidden');
+            
+            // Hide about page section
+            document.getElementById('aboutpage').classList.add('hidden');
+            
+            // Show process section
+            document.getElementById('process').classList.remove('hidden');
+            
+            // Reinitialize AOS for new elements
+            AOS.refresh();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showAbout(event) {
+            if (event) event.preventDefault();
+            
+            // Hide all home sections
+            homeSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.classList.add('hidden');
+            });
+            // Also hide statistics strip
+            document.querySelector('.bg-brand-red.relative.z-20')?.classList.add('hidden');
+            
+            // Hide vacancies section
+            document.getElementById('vacancies').classList.add('hidden');
+            
+            // Hide process section
+            document.getElementById('process').classList.add('hidden');
+            
+            // Show about page section
+            document.getElementById('aboutpage').classList.remove('hidden');
+            
+            // Reinitialize AOS for new elements
+            AOS.refresh();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const topBarHeight = 32; // Height of the top bar in pixels (approx)
+            
+            if (window.scrollY > 50) {
+                // Scrolled state
+                navbar.style.top = '0';
+                navbar.classList.add('shadow-md');
+            } else {
+                // Top state (respecting top bar on desktop)
+                if(window.innerWidth >= 768) {
+                    navbar.style.top = '2rem'; // 8 tailwind units
+                } else {
+                    navbar.style.top = '0';
+                }
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Job Filtering Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const jobRows = document.querySelectorAll('.job-row');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-brand-blue', 'text-white');
+                    b.classList.add('text-brand-blue');
+                });
+                
+                // Add active class to clicked button
+                btn.classList.remove('text-brand-blue');
+                btn.classList.add('bg-brand-blue', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                jobRows.forEach(row => {
+                    if (filterValue === 'all' || row.getAttribute('data-category') === filterValue) {
+                        row.classList.remove('hidden');
+                        // Small animation reset
+                        row.style.opacity = '0';
+                        setTimeout(() => row.style.opacity = '1', 50);
+                    } else {
+                        row.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Form Submission Simulation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'SENDING...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75');
+
+            setTimeout(() => {
+                alert('Thank you! Your message has been sent successfully. A Jeseey Agency representative will contact you shortly.');
+                this.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75');
+            }, 1500);
+        });
+
+        // Mock Apply Function
+        function openApplyModal(jobTitle) {
+            alert(`You are starting the application process for: ${jobTitle}\n\nPlease fill out the contact form below or email your CV to jobs@jeseeyagency.com`);
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
